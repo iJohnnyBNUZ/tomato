@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		B216ACC01CC0D9B3007D337E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B216ACBF1CC0D9B3007D337E /* AppDelegate.swift */; };
-		B216ACC21CC0D9B3007D337E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B216ACC11CC0D9B3007D337E /* FirstViewController.swift */; };
-		B216ACC41CC0D9B3007D337E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B216ACC31CC0D9B3007D337E /* SecondViewController.swift */; };
 		B216ACC71CC0D9B3007D337E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B216ACC51CC0D9B3007D337E /* Main.storyboard */; };
 		B216ACC91CC0D9B3007D337E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B216ACC81CC0D9B3007D337E /* Assets.xcassets */; };
 		B216ACCC1CC0D9B3007D337E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B216ACCA1CC0D9B3007D337E /* LaunchScreen.storyboard */; };
 		B216ACD71CC0D9B3007D337E /* TomatoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B216ACD61CC0D9B3007D337E /* TomatoTests.swift */; };
 		B216ACE21CC0D9B3007D337E /* TomatoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B216ACE11CC0D9B3007D337E /* TomatoUITests.swift */; };
+		B216ACF01CC0DB2D007D337E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = B216ACEF1CC0DB2D007D337E /* Home.swift */; };
+		B216ACF21CC0DB55007D337E /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = B216ACF11CC0DB55007D337E /* List.swift */; };
+		B216ACF41CC0DB84007D337E /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B216ACF31CC0DB84007D337E /* Statistic.swift */; };
+		B216ACF61CC0DB97007D337E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B216ACF51CC0DB97007D337E /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +39,6 @@
 /* Begin PBXFileReference section */
 		B216ACBC1CC0D9B3007D337E /* Tomato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tomato.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B216ACBF1CC0D9B3007D337E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B216ACC11CC0D9B3007D337E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		B216ACC31CC0D9B3007D337E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		B216ACC61CC0D9B3007D337E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B216ACC81CC0D9B3007D337E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B216ACCB1CC0D9B3007D337E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +49,10 @@
 		B216ACDD1CC0D9B3007D337E /* TomatoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomatoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B216ACE11CC0D9B3007D337E /* TomatoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoUITests.swift; sourceTree = "<group>"; };
 		B216ACE31CC0D9B3007D337E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B216ACEF1CC0DB2D007D337E /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		B216ACF11CC0DB55007D337E /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		B216ACF31CC0DB84007D337E /* Statistic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistic.swift; sourceTree = "<group>"; };
+		B216ACF51CC0DB97007D337E /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +104,11 @@
 			isa = PBXGroup;
 			children = (
 				B216ACBF1CC0D9B3007D337E /* AppDelegate.swift */,
-				B216ACC11CC0D9B3007D337E /* FirstViewController.swift */,
-				B216ACC31CC0D9B3007D337E /* SecondViewController.swift */,
 				B216ACC51CC0D9B3007D337E /* Main.storyboard */,
+				B216ACEF1CC0DB2D007D337E /* Home.swift */,
+				B216ACF11CC0DB55007D337E /* List.swift */,
+				B216ACF31CC0DB84007D337E /* Statistic.swift */,
+				B216ACF51CC0DB97007D337E /* Settings.swift */,
 				B216ACC81CC0D9B3007D337E /* Assets.xcassets */,
 				B216ACCA1CC0D9B3007D337E /* LaunchScreen.storyboard */,
 				B216ACCD1CC0D9B3007D337E /* Info.plist */,
@@ -262,9 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B216ACC41CC0D9B3007D337E /* SecondViewController.swift in Sources */,
 				B216ACC01CC0D9B3007D337E /* AppDelegate.swift in Sources */,
-				B216ACC21CC0D9B3007D337E /* FirstViewController.swift in Sources */,
+				B216ACF01CC0DB2D007D337E /* Home.swift in Sources */,
+				B216ACF41CC0DB84007D337E /* Statistic.swift in Sources */,
+				B216ACF21CC0DB55007D337E /* List.swift in Sources */,
+				B216ACF61CC0DB97007D337E /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
