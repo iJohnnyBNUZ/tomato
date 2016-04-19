@@ -10,8 +10,7 @@ import UIKit
 
 class Settings: UITableViewController {
     var pickOption = ["5 min", "10 min", "15 min", "20 min", "25 min","30 min"]
-    //var pickOption1 = ["5 min", "10 min", "15 min", "20 min", "25 min","30 min"]
-    //var pickOption = ["5 min", "10 min", "15 min", "20 min", "25 min","30 min"]
+    
     var pickerVisible = false
     var pickerVisible1 = false
     @IBOutlet weak var date: UILabel!
@@ -19,12 +18,6 @@ class Settings: UITableViewController {
     @IBOutlet weak var dateChanged: UIPickerView!
     @IBOutlet weak var relaxChanged: UIPickerView!
     @IBOutlet weak var relaxdate: UILabel!
-    //    @IBAction func dateChanged(sender: UIDatePicker) {
-    //        var dateFormatter = NSDateFormatter()
-    //        //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-    //        dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
-    //        date.text = dateFormatter.stringFromDate(sender.date)
-    //    }
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -46,16 +39,9 @@ class Settings: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //dateChanged.delegate = self
-        //date.addSubview(dateChanged)
+    
         tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0)
         tableView.tableFooterView = UIView(frame: CGRectZero)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,11 +65,6 @@ class Settings: UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    //    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-    //        if tomatotime.selected {
-    //
-    //        }
-    //    }
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 0 && indexPath.section == 0{
             return 44.0
@@ -98,19 +79,18 @@ class Settings: UITableViewController {
             }
         }
         
-        if indexPath.row == 2 && indexPath.section == 0{//if indexPath.row == 1 && toggle.on == false
+        if indexPath.row == 2 && indexPath.section == 0{
             return 44.0
         }
         
         if indexPath.row == 3 && indexPath.section == 0 {
-            if pickerVisible1 == true{//toggle.on == false || pickerVisible == false
+            if pickerVisible1 == true{
                 return 165.0
             }
             else {
                 return 0.0
             }
         }
-        
         return 44.0
     }
     
