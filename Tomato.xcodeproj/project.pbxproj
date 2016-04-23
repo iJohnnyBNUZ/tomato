@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		736968421CCA12370065839A /* voiceChooseTbl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736968411CCA12370065839A /* voiceChooseTbl.swift */; };
 		B216ACC01CC0D9B3007D337E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B216ACBF1CC0D9B3007D337E /* AppDelegate.swift */; };
 		B216ACC71CC0D9B3007D337E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B216ACC51CC0D9B3007D337E /* Main.storyboard */; };
 		B216ACC91CC0D9B3007D337E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B216ACC81CC0D9B3007D337E /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		736968411CCA12370065839A /* voiceChooseTbl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = voiceChooseTbl.swift; sourceTree = "<group>"; };
 		B216ACBC1CC0D9B3007D337E /* Tomato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tomato.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B216ACBF1CC0D9B3007D337E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B216ACC61CC0D9B3007D337E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				B216ACC81CC0D9B3007D337E /* Assets.xcassets */,
 				B216ACCA1CC0D9B3007D337E /* LaunchScreen.storyboard */,
 				B216ACCD1CC0D9B3007D337E /* Info.plist */,
+				736968411CCA12370065839A /* voiceChooseTbl.swift */,
 			);
 			path = Tomato;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			files = (
 				B216ACC01CC0D9B3007D337E /* AppDelegate.swift in Sources */,
 				B216ACF01CC0DB2D007D337E /* Home.swift in Sources */,
+				736968421CCA12370065839A /* voiceChooseTbl.swift in Sources */,
 				B216ACF41CC0DB84007D337E /* Statistic.swift in Sources */,
 				B216ACF21CC0DB55007D337E /* List.swift in Sources */,
 				B216ACF61CC0DB97007D337E /* Settings.swift in Sources */,
@@ -523,6 +527,7 @@
 				B216ACE81CC0D9B3007D337E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B216ACE91CC0D9B3007D337E /* Build configuration list for PBXNativeTarget "TomatoTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +536,7 @@
 				B216ACEB1CC0D9B3007D337E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B216ACEC1CC0D9B3007D337E /* Build configuration list for PBXNativeTarget "TomatoUITests" */ = {
 			isa = XCConfigurationList;
@@ -539,6 +545,7 @@
 				B216ACEE1CC0D9B3007D337E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

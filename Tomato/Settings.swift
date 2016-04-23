@@ -11,7 +11,7 @@ import UIKit
 class Settings: UITableViewController {
     var pickOption = ["25 min", "30 min", "35 min", "40 min", "45 min","50 min","55 min","60 min"]
     
-    var voiceOption = ["5 min", "10 min", "15 min", "20 min", "25 min","30 min"]
+    var voiceOption = ["bi", "bibi", "15 min", "20 min", "25 min","30 min"]
     
     var pickerVisible = false
     var pickerVisible1 = false
@@ -22,14 +22,13 @@ class Settings: UITableViewController {
     @IBOutlet weak var dateChanged: UIPickerView!
     @IBOutlet weak var relaxChanged: UIPickerView!
     @IBOutlet weak var relaxdate: UILabel!
-    @IBOutlet weak var voiceChanged: UIPickerView!
-    @IBOutlet weak var voiceLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     
         dateChanged.selectRow(0,inComponent:0,animated:true)
         relaxChanged.selectRow(0,inComponent:0,animated:true)
-        voiceChanged.selectRow(0,inComponent:0,animated:true)
+        
         tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0)
         tableView.tableFooterView = UIView(frame: CGRectZero)
     }
@@ -52,9 +51,6 @@ class Settings: UITableViewController {
         else if pickerView == relaxChanged{
             return pickOption.count
         }
-        else if pickerView == voiceChanged{
-            return voiceOption.count
-        }
         return 0
 
     }
@@ -67,10 +63,6 @@ class Settings: UITableViewController {
         else if pickerView == relaxChanged{
             return pickOption[row]
         }
-        else if pickerView == voiceChanged{
-            return voiceOption[row]
-        }
-        
         return ""
     }
     
@@ -84,13 +76,8 @@ class Settings: UITableViewController {
             relaxdate.text = pickOption[row]
             //pickerVisible1 = false
         }
-        else if pickerView == voiceChanged{
-            voiceLabel.text = voiceOption[row]
-            //pickerVisible2 = false
-        }
         pickerVisible = false
         pickerVisible1 = false
-        pickerVisible2 = false
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -99,9 +86,6 @@ class Settings: UITableViewController {
         }
         if indexPath.row == 2 && indexPath.section == 0{
             pickerVisible1 = !pickerVisible1
-        }
-        if indexPath.row == 1 && indexPath.section == 1{
-            pickerVisible2 = !pickerVisible2
         }
         tableView.reloadData()
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -127,15 +111,6 @@ class Settings: UITableViewController {
             }
         }
         ///////////////////////////////////////////////////////////////////////////////
-
-        if indexPath.row == 2 && indexPath.section == 1 {
-            if pickerVisible2 == true{
-                return 165.0
-            }
-            else {
-                return 0.0
-            }
-        }
 
         return 44.0
     }
