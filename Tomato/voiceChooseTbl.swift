@@ -42,8 +42,14 @@ class voiceChooseTbl: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("voicechoose")!
         
-        if indexPath.row == 0 || indexPath.row == lastSelectedIndexPath{
-            cell.accessoryType = .Checkmark
+        if indexPath.row == 0  {
+            if lastSelectedIndexPath == nil{
+                cell.accessoryType = .Checkmark
+            }
+            else if lastSelectedIndexPath != 0{
+                cell.accessoryType = .None
+
+            }
         }
         else{
             cell.accessoryType = (lastSelectedIndexPath?.row == indexPath.row) ? .Checkmark : .None
