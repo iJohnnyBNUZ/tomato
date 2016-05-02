@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="48" id="KGk-i7-Jjw" customClass="ListCell" customModule="Tomato" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWg-Ph-uaL">
+                        <rect key="frame" x="8" y="8" width="262" height="32"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzA-Ca-LVz">
+                                <rect key="frame" x="33" y="3" width="24" height="24"/>
+                                <state key="normal" image="Circle_24px_1198167_easyicon.net"/>
+                                <state key="selected" image="check"/>
+                                <state key="highlighted" image="button_check_16px_563497_easyicon.net"/>
+                                <connections>
+                                    <action selector="checkedBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cvD-fG-lyj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Je-w2-K3N">
+                                <rect key="frame" x="79" y="4" width="183" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hWg-Ph-uaL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="00l-2R-gBY"/>
+                    <constraint firstItem="hWg-Ph-uaL" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="5Lu-ko-bkm"/>
+                    <constraint firstItem="hWg-Ph-uaL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="VFf-m1-oaM"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="hWg-Ph-uaL" secondAttribute="trailing" constant="42" id="VnO-Nn-CUZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="checkBtn" destination="YzA-Ca-LVz" id="sDo-xt-ZMY"/>
+                <outlet property="listLabel" destination="0Je-w2-K3N" id="99y-iq-jG0"/>
+                <outlet property="view" destination="hWg-Ph-uaL" id="cBJ-Qs-Ix3"/>
+            </connections>
+            <point key="canvasLocation" x="93" y="248"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Circle_24px_1198167_easyicon.net" width="24" height="24"/>
+        <image name="button_check_16px_563497_easyicon.net" width="16" height="16"/>
+        <image name="check" width="30" height="31"/>
+    </resources>
+</document>

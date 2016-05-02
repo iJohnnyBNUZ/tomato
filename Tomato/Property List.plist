@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>New item - 2 - 8</key>
+	<array>
+		<dict>
+			<key>list</key>
+			<string>数据库</string>
+		</dict>
+	</array>
+	<key>New item - 2 - 9</key>
+	<array>
+		<dict>
+			<key>list</key>
+			<string>雅思</string>
+		</dict>
+	</array>
+	<key>New item - 2 - 10</key>
+	<array>
+		<dict>
+			<key>list</key>
+			<string>web设计</string>
+		</dict>
+	</array>
+	<key>New item - 2 - 2</key>
+	<array>
+		<dict>
+			<key>list</key>
+			<string>Linux</string>
+		</dict>
+	</array>
+	<key>New item - 2 - 3</key>
+	<array>
+		<dict>
+			<key>list</key>
+			<string>网络程序设计</string>
+		</dict>
+	</array>
+	<key>New item - 2 - 4</key>
+	<array>
+		<dict>
+			<key>list</key>
+			<string>java高级编程</string>
+		</dict>
+	</array>
+	<key>New item - 2</key>
+	<array>
+		<dict>
+			<key>list</key>
+			<string>网络程序设计</string>
+		</dict>
+	</array>
+</dict>
+</plist>
