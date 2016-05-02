@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		736968421CCA12370065839A /* voiceChooseTbl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736968411CCA12370065839A /* voiceChooseTbl.swift */; };
+		B20329FC1CD7809E00F9211E /* Pomoing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B20329F91CD7809E00F9211E /* Pomoing.mp3 */; };
+		B20329FD1CD7809E00F9211E /* Start.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B20329FA1CD7809E00F9211E /* Start.mp3 */; };
+		B20329FE1CD7809E00F9211E /* Stop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B20329FB1CD7809E00F9211E /* Stop.mp3 */; };
 		B20654901CD447D8001D42A4 /* SpeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B206548F1CD447D8001D42A4 /* SpeTableViewController.swift */; };
 		B20654951CD447EB001D42A4 /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B20654911CD447EB001D42A4 /* ListCell.xib */; };
 		B20654961CD447EB001D42A4 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = B20654921CD447EB001D42A4 /* Property List.plist */; };
@@ -46,6 +49,9 @@
 
 /* Begin PBXFileReference section */
 		736968411CCA12370065839A /* voiceChooseTbl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = voiceChooseTbl.swift; sourceTree = "<group>"; };
+		B20329F91CD7809E00F9211E /* Pomoing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Pomoing.mp3; sourceTree = "<group>"; };
+		B20329FA1CD7809E00F9211E /* Start.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Start.mp3; sourceTree = "<group>"; };
+		B20329FB1CD7809E00F9211E /* Stop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Stop.mp3; sourceTree = "<group>"; };
 		B206548F1CD447D8001D42A4 /* SpeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeTableViewController.swift; sourceTree = "<group>"; };
 		B20654911CD447EB001D42A4 /* ListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 		B20654921CD447EB001D42A4 /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
@@ -96,6 +102,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B20329F81CD7809E00F9211E /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				B20329F91CD7809E00F9211E /* Pomoing.mp3 */,
+				B20329FA1CD7809E00F9211E /* Start.mp3 */,
+				B20329FB1CD7809E00F9211E /* Stop.mp3 */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		B20654991CD448AF001D42A4 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +156,7 @@
 		B216ACBE1CC0D9B3007D337E /* Tomato */ = {
 			isa = PBXGroup;
 			children = (
+				B20329F81CD7809E00F9211E /* Sound */,
 				B206549A1CD44D7E001D42A4 /* To-DoList */,
 				B20654991CD448AF001D42A4 /* List */,
 				B216ACBF1CC0D9B3007D337E /* AppDelegate.swift */,
@@ -281,11 +298,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B20329FC1CD7809E00F9211E /* Pomoing.mp3 in Resources */,
 				B20654961CD447EB001D42A4 /* Property List.plist in Resources */,
 				B20654951CD447EB001D42A4 /* ListCell.xib in Resources */,
 				B216ACCC1CC0D9B3007D337E /* LaunchScreen.storyboard in Resources */,
+				B20329FE1CD7809E00F9211E /* Stop.mp3 in Resources */,
 				B216ACC91CC0D9B3007D337E /* Assets.xcassets in Resources */,
 				B216ACC71CC0D9B3007D337E /* Main.storyboard in Resources */,
+				B20329FD1CD7809E00F9211E /* Start.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

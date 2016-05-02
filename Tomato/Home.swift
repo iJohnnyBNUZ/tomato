@@ -7,12 +7,16 @@
 //
 
 import UIKit
+//import AVFoundation
 
 class Home: UIViewController {
 
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
+    
+    var isPlaying = false
+    var soundPlayer:AVAudioPlayer?
     
     var remianingSeconds: Int = 0 {
         willSet(newSeconds) {
@@ -33,6 +37,12 @@ class Home: UIViewController {
         }
     }
     var timer:NSTimer?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        remianingSeconds = 1500
+        // Do any additional setup after loading the view.
+    }
     
     func updateTimer(timer: NSTimer) {
         remianingSeconds -= 1
@@ -57,6 +67,7 @@ class Home: UIViewController {
     }
     
     @IBAction func startButton(sender: AnyObject) {
+        //playSound(0)
         isCounting = !isCounting
     }
     @IBAction func clearButton(sender: AnyObject) {
@@ -64,13 +75,57 @@ class Home: UIViewController {
         //remianingSeconds = 5
         isCounting = false
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        remianingSeconds = 1500
-        // Do any additional setup after loading the view.
-    }
-
+    
+//    func playSound(soundIndex: Int) {
+//        let startSoundPath = NSBundle.mainBundle().pathForResource("Start", ofType: "mp3")
+//        let stopSoundPath = NSBundle.mainBundle().pathForResource("Stop", ofType: "mp3")
+//        let pomoingSoundPath = NSBundle.mainBundle().pathForResource("Pomoing", ofType: "mp3")
+//        
+//        let startSoundUrl = NSURL(fileURLWithPath: startSoundPath!)
+//        let stopSoundUrl = NSURL(fileURLWithPath: stopSoundPath!)
+//        let pomoingSoundUrl = NSURL(fileURLWithPath: pomoingSoundPath!)
+//        
+//        switch soundIndex {
+//        case 0:
+//            stopSound()
+//            //if enableAlarmSound {
+//                do {soundPlayer = try AVAudioPlayer(contentsOfURL: stopSoundUrl)} catch _ { }
+//                soundPlayer!.numberOfLoops = 0
+//                soundPlayer!.volume = 1
+//                soundPlayer!.prepareToPlay()
+//                soundPlayer!.play()
+//            //}
+//        case 1:
+//            stopSound()
+//           // if enableAlarmSound {
+//                do {soundPlayer = try AVAudioPlayer(contentsOfURL: startSoundUrl)} catch _ { }
+//                soundPlayer!.numberOfLoops = -1
+//                soundPlayer!.volume = 1
+//                soundPlayer!.prepareToPlay()
+//                soundPlayer!.play()
+//            //}
+//        case 2:
+//            stopSound()
+//            //if enableTimerSound {
+//                do {soundPlayer = try AVAudioPlayer(contentsOfURL: pomoingSoundUrl)} catch _ { }
+//                soundPlayer!.numberOfLoops = -1
+//                soundPlayer!.volume = 0.2
+//                soundPlayer!.prepareToPlay()
+//                soundPlayer!.play()
+//            //}
+//            
+//        default:
+//            if soundPlayer != nil {
+//                soundPlayer!.stop()
+//            }
+//        }
+//    }
+//    func stopSound() {
+//        if soundPlayer != nil {
+//            soundPlayer!.stop()
+//        }
+//    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
