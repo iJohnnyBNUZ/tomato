@@ -16,10 +16,11 @@ class voiceChooseTbl: UITableViewController {
     var soundPlayer:AVAudioPlayer?
     
    
-    var voice = ["雷达(默认)","波浪","灯塔","顶峰","辐射","海边","欢乐时光","缓慢上升","急板","煎茶","举起","开场","流水","猫头鹰","山顶","闪烁","水晶","丝绸","往复"]
+    var voice = ["雷达(默认)","波浪","灯塔","顶峰","辐射","海边","欢乐时光","缓慢上升","急板","煎茶","举起","开场"]
     var lastSelectedIndexPath: NSIndexPath? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView(frame: CGRectZero)
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,34 +78,34 @@ class voiceChooseTbl: UITableViewController {
             AudioServicesPlaySystemSound(SystemSoundID(1258))
         }
         else if indexPath.row == 2 {
-            AudioServicesPlaySystemSound(SystemSoundID(1000))
+            AudioServicesPlaySystemSound(SystemSoundID(1334))
         }
         else if indexPath.row == 3 {
-            AudioServicesPlaySystemSound(SystemSoundID(1006))
+            AudioServicesPlaySystemSound(SystemSoundID(1333))
         }
         else if indexPath.row == 4 {
-            AudioServicesPlaySystemSound(SystemSoundID(1006))
+            AudioServicesPlaySystemSound(SystemSoundID(1335))
         }
         else if indexPath.row == 5 {
-            AudioServicesPlaySystemSound(SystemSoundID(1006))
+            AudioServicesPlaySystemSound(SystemSoundID(1336))
         }
         else if indexPath.row == 6 {
-            AudioServicesPlaySystemSound(SystemSoundID(1006))
+            AudioServicesPlaySystemSound(SystemSoundID(1332))
         }
         else if indexPath.row == 7 {
-            AudioServicesPlaySystemSound(SystemSoundID(1022))
+            AudioServicesPlaySystemSound(SystemSoundID(1330))
         }
         else if indexPath.row == 8 {
-            AudioServicesPlaySystemSound(SystemSoundID(1023))
+            AudioServicesPlaySystemSound(SystemSoundID(1329))
         }
         else if indexPath.row == 9 {
-            AudioServicesPlaySystemSound(SystemSoundID(1024))
+            AudioServicesPlaySystemSound(SystemSoundID(1328))
         }
         else if indexPath.row == 10 {
-            AudioServicesPlaySystemSound(SystemSoundID(1025))
+            AudioServicesPlaySystemSound(SystemSoundID(1327))
         }
         else {
-            AudioServicesPlaySystemSound(SystemSoundID(1026))
+            AudioServicesPlaySystemSound(SystemSoundID(1326))
         }
         
         
