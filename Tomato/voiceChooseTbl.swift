@@ -7,32 +7,25 @@
 //
 
 import UIKit
+import AVFoundation
+import AudioToolbox
 
 class voiceChooseTbl: UITableViewController {
 
+    var isPlaying = false
+    var soundPlayer:AVAudioPlayer?
+    
+   
     var voice = ["雷达(默认)","波浪","灯塔","顶峰","辐射","海边","欢乐时光","缓慢上升","急板","煎茶","举起","开场","流水","猫头鹰","山顶","闪烁","水晶","丝绸","往复"]
     var lastSelectedIndexPath: NSIndexPath? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-//
-//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -77,8 +70,119 @@ class voiceChooseTbl: UITableViewController {
             
             lastSelectedIndexPath = indexPath
         }
+        if indexPath.row == 0 {
+            AudioServicesPlaySystemSound(SystemSoundID(1006))
+        }
+        else if indexPath.row == 1 {
+            AudioServicesPlaySystemSound(SystemSoundID(1258))
+        }
+        else if indexPath.row == 2 {
+            AudioServicesPlaySystemSound(SystemSoundID(1000))
+        }
+        else if indexPath.row == 3 {
+            AudioServicesPlaySystemSound(SystemSoundID(1006))
+        }
+        else if indexPath.row == 4 {
+            AudioServicesPlaySystemSound(SystemSoundID(1006))
+        }
+        else if indexPath.row == 5 {
+            AudioServicesPlaySystemSound(SystemSoundID(1006))
+        }
+        else if indexPath.row == 6 {
+            AudioServicesPlaySystemSound(SystemSoundID(1006))
+        }
+        else if indexPath.row == 7 {
+            AudioServicesPlaySystemSound(SystemSoundID(1022))
+        }
+        else if indexPath.row == 8 {
+            AudioServicesPlaySystemSound(SystemSoundID(1023))
+        }
+        else if indexPath.row == 9 {
+            AudioServicesPlaySystemSound(SystemSoundID(1024))
+        }
+        else if indexPath.row == 10 {
+            AudioServicesPlaySystemSound(SystemSoundID(1025))
+        }
+        else {
+            AudioServicesPlaySystemSound(SystemSoundID(1026))
+        }
+        
+        
     }
     
+    
+//        func playSound(soundIndex: Int) {
+//            //建立的SystemSoundID对象
+//            var startsoundID:SystemSoundID = 0
+//            var stopsoundID:SystemSoundID = 1
+//            var pomoingsoundID:SystemSoundID = 2
+//            
+//            let startSoundPath = NSBundle.mainBundle().pathForResource("Start", ofType: "mp3")
+//            let stopSoundPath = NSBundle.mainBundle().pathForResource("Stop", ofType: "mp3")
+//            let pomoingSoundPath = NSBundle.mainBundle().pathForResource("Pomoing", ofType: "mp3")
+//    
+//            let startSoundUrl = NSURL(fileURLWithPath: startSoundPath!)
+//            let stopSoundUrl = NSURL(fileURLWithPath: stopSoundPath!)
+//            let pomoingSoundUrl = NSURL(fileURLWithPath: pomoingSoundPath!)
+//    
+//            //赋值
+//            AudioServicesCreateSystemSoundID(startSoundUrl, &startsoundID)
+//            AudioServicesCreateSystemSoundID(stopSoundUrl, &stopsoundID)
+//            AudioServicesCreateSystemSoundID(pomoingSoundUrl, &pomoingsoundID)
+//            
+//            
+//            switch soundIndex {
+//            case 0:
+//                stopSound()
+//                //if enableAlarmSound {
+//                do {
+//                    //添加音频结束时的回调
+////                    let proc: AudioServicesSystemSoundCompletionProc =
+////                    MyAudioServicesSystemSoundCompletionHandler
+////                    AudioServicesAddSystemSoundCompletion(startsoundID, nil, nil, proc,
+////                                                          UnsafeMutablePointer(unsafeAddressOf(self)))
+////                    
+//    
+//                    soundPlayer = try AVAudioPlayer(contentsOfURL: stopSoundUrl)} catch _ { }
+//                    soundPlayer!.numberOfLoops = 0
+//                    soundPlayer!.volume = 1
+//                    soundPlayer!.prepareToPlay()
+//                    soundPlayer!.play()
+//                //}
+//            case 1:
+//                stopSound()
+//               // if enableAlarmSound {
+//                    do {soundPlayer = try AVAudioPlayer(contentsOfURL: startSoundUrl)} catch _ { }
+//                    soundPlayer!.numberOfLoops = -1
+//                    soundPlayer!.volume = 1
+//                    soundPlayer!.prepareToPlay()
+//                    soundPlayer!.play()
+//                //}
+//            case 2:
+//                stopSound()
+//                //if enableTimerSound {
+//                    do {soundPlayer = try AVAudioPlayer(contentsOfURL: pomoingSoundUrl)} catch _ { }
+//                    soundPlayer!.numberOfLoops = -1
+//                    soundPlayer!.volume = 0.2
+//                    soundPlayer!.prepareToPlay()
+//                    soundPlayer!.play()
+//                //}
+//    
+//            default:
+//                if soundPlayer != nil {
+//                    soundPlayer!.stop()
+//                }
+//            }
+//        }
+//        func stopSound() {
+//            if soundPlayer != nil {
+//                soundPlayer!.stop()
+//            }
+//        }
+//    
+//
+//
+//    
     
 //    func resetChecks() {
 //        for i in 0...tableView.numberOfSections - 1 {
