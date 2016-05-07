@@ -18,6 +18,7 @@
 		B20654981CD447EB001D42A4 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20654941CD447EB001D42A4 /* ListController.swift */; };
 		B206549C1CD44DF0001D42A4 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B206549B1CD44DF0001D42A4 /* UserInfo.swift */; };
 		B206549E1CD450AF001D42A4 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B206549D1CD450AF001D42A4 /* DataModel.swift */; };
+		B208A36B1CD7C1A9005D0350 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B208A36A1CD7C1A9005D0350 /* KDCircularProgress.swift */; };
 		B216ACC01CC0D9B3007D337E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B216ACBF1CC0D9B3007D337E /* AppDelegate.swift */; };
 		B216ACC71CC0D9B3007D337E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B216ACC51CC0D9B3007D337E /* Main.storyboard */; };
 		B216ACC91CC0D9B3007D337E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B216ACC81CC0D9B3007D337E /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		B20654941CD447EB001D42A4 /* ListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		B206549B1CD44DF0001D42A4 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfo.swift; path = Data/UserInfo.swift; sourceTree = "<group>"; };
 		B206549D1CD450AF001D42A4 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataModel.swift; path = Data/DataModel.swift; sourceTree = "<group>"; };
+		B208A36A1CD7C1A9005D0350 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		B216ACBC1CC0D9B3007D337E /* Tomato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tomato.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B216ACBF1CC0D9B3007D337E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B216ACC61CC0D9B3007D337E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,6 +135,14 @@
 			name = "To-DoList";
 			sourceTree = "<group>";
 		};
+		B208A3691CD7C1A9005D0350 /* KDCircularProgress */ = {
+			isa = PBXGroup;
+			children = (
+				B208A36A1CD7C1A9005D0350 /* KDCircularProgress.swift */,
+			);
+			path = KDCircularProgress;
+			sourceTree = "<group>";
+		};
 		B216ACB31CC0D9B3007D337E = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +166,7 @@
 		B216ACBE1CC0D9B3007D337E /* Tomato */ = {
 			isa = PBXGroup;
 			children = (
+				B208A3691CD7C1A9005D0350 /* KDCircularProgress */,
 				B20329F81CD7809E00F9211E /* Sound */,
 				B206549A1CD44D7E001D42A4 /* To-DoList */,
 				B20654991CD448AF001D42A4 /* List */,
@@ -259,7 +270,7 @@
 				TargetAttributes = {
 					B216ACBB1CC0D9B3007D337E = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 93VNB92EM2;
+						DevelopmentTeam = Y66FFD46EY;
 					};
 					B216ACD11CC0D9B3007D337E = {
 						CreatedOnToolsVersion = 7.3;
@@ -330,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B208A36B1CD7C1A9005D0350 /* KDCircularProgress.swift in Sources */,
 				B216ACC01CC0D9B3007D337E /* AppDelegate.swift in Sources */,
 				B216ACF01CC0DB2D007D337E /* Home.swift in Sources */,
 				B206549E1CD450AF001D42A4 /* DataModel.swift in Sources */,
@@ -484,14 +496,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tomato/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ponta5.Tomato;
+				PRODUCT_BUNDLE_IDENTIFIER = Johnny.Tomato;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -499,14 +507,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tomato/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ponta5.Tomato;
+				PRODUCT_BUNDLE_IDENTIFIER = Johnny.Tomato;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

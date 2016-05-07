@@ -17,7 +17,18 @@
                     <view key="view" contentMode="scaleToFill" id="gFb-XP-zUL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comingSoon" translatesAutoresizingMaskIntoConstraints="NO" id="bD2-8H-t9o">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rDT-jE-0J9" firstAttribute="top" secondItem="bD2-8H-t9o" secondAttribute="bottom" id="SxT-5C-Eod"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bD2-8H-t9o" secondAttribute="trailing" constant="-20" id="YHc-SV-lis"/>
+                            <constraint firstItem="bD2-8H-t9o" firstAttribute="top" secondItem="gFb-XP-zUL" secondAttribute="topMargin" id="pTc-z6-r8h"/>
+                            <constraint firstItem="bD2-8H-t9o" firstAttribute="leading" secondItem="gFb-XP-zUL" secondAttribute="leadingMargin" constant="-20" id="uDX-J6-9eb"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="statics" id="vEN-M9-O3T"/>
                 </viewController>
@@ -30,10 +41,15 @@
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" itemPositioning="centered" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.96078431372549022" green="0.38431372549019605" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="piA-12-GnN" kind="relationship" relationship="viewControllers" id="bS9-72-bLV"/>
@@ -59,23 +75,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybV-7O-WRe">
-                                <rect key="frame" x="237" y="145" width="127" height="41"/>
-                                <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="100"/>
+                                <rect key="frame" x="237" y="145" width="294" height="137"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="70"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aor-kK-zIQ">
-                                <rect key="frame" x="87" y="441" width="30" height="30"/>
-                                <state key="normal" title="开始">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aor-kK-zIQ">
+                                <rect key="frame" x="86" y="440" width="41" height="41"/>
+                                <state key="normal" image="start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="startButton:" destination="piA-12-GnN" eventType="touchUpInside" id="0lG-cA-I63"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldh-oH-gXn">
-                                <rect key="frame" x="484" y="441" width="30" height="30"/>
-                                <state key="normal" title="停止">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldh-oH-gXn">
+                                <rect key="frame" x="483" y="440" width="42" height="42"/>
+                                <state key="normal" image="stop">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -86,18 +102,20 @@
                         <color key="backgroundColor" red="0.96078431372549022" green="0.38431372549019605" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="T5j-qw-JFV" firstAttribute="top" secondItem="Aor-kK-zIQ" secondAttribute="bottom" constant="78" id="4ot-cg-Zae"/>
-                            <constraint firstItem="T5j-qw-JFV" firstAttribute="top" secondItem="ybV-7O-WRe" secondAttribute="bottom" constant="365" id="60L-eg-ipQ"/>
+                            <constraint firstItem="T5j-qw-JFV" firstAttribute="top" secondItem="ybV-7O-WRe" secondAttribute="bottom" constant="310" id="60L-eg-ipQ"/>
                             <constraint firstItem="T5j-qw-JFV" firstAttribute="top" secondItem="ldh-oH-gXn" secondAttribute="bottom" constant="78" id="9Oh-lB-Isl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ldh-oH-gXn" secondAttribute="trailing" constant="66" id="BHG-0J-6uJ"/>
                             <constraint firstItem="ybV-7O-WRe" firstAttribute="centerX" secondItem="umS-Ra-zIS" secondAttribute="centerX" id="FXP-dX-zYb"/>
                             <constraint firstItem="Aor-kK-zIQ" firstAttribute="leading" secondItem="umS-Ra-zIS" secondAttribute="leadingMargin" constant="67" id="Iga-V9-ym3"/>
-                            <constraint firstItem="ybV-7O-WRe" firstAttribute="top" secondItem="mFM-xl-0v8" secondAttribute="bottom" constant="125" id="Tp8-RK-hGu"/>
+                            <constraint firstItem="ybV-7O-WRe" firstAttribute="top" secondItem="mFM-xl-0v8" secondAttribute="bottom" constant="150" id="Tp8-RK-hGu"/>
                             <constraint firstItem="Aor-kK-zIQ" firstAttribute="height" secondItem="ldh-oH-gXn" secondAttribute="height" id="Yc3-Q8-fRy"/>
                             <constraint firstItem="Aor-kK-zIQ" firstAttribute="top" secondItem="ldh-oH-gXn" secondAttribute="top" id="neC-IF-TWe"/>
                             <constraint firstItem="Aor-kK-zIQ" firstAttribute="width" secondItem="ldh-oH-gXn" secondAttribute="width" id="v0S-3j-Ozd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="Home" id="qvI-06-lcA"/>
+                    <tabBarItem key="tabBarItem" title="" image="Home" id="qvI-06-lcA">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="5" vertical="5"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="clearButton" destination="ldh-oH-gXn" id="dpf-cf-iQW"/>
                         <outlet property="startButton" destination="Aor-kK-zIQ" id="yOu-CD-E4j"/>
@@ -541,7 +559,7 @@
                             <tableViewSection id="zGu-pR-AHZ" userLabel="写在这里">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="83" id="XQg-pN-r5e">
-                                        <rect key="frame" x="0.0" y="35" width="600" height="83"/>
+                                        <rect key="frame" x="0.0" y="99" width="600" height="83"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XQg-pN-r5e" id="xs3-5y-Jgo">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="83"/>
@@ -569,7 +587,7 @@
                             <tableViewSection headerTitle="" id="W76-X7-ihQ" userLabel="截止时间">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="46" id="8c7-uZ-jTY" userLabel="截止日期">
-                                        <rect key="frame" x="0.0" y="120" width="600" height="46"/>
+                                        <rect key="frame" x="0.0" y="184" width="600" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8c7-uZ-jTY" id="OMI-HK-PLz">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="46"/>
@@ -600,7 +618,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="129" id="sNo-Gj-Atn" userLabel="datapicker">
-                                        <rect key="frame" x="0.0" y="166" width="600" height="129"/>
+                                        <rect key="frame" x="0.0" y="230" width="600" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sNo-Gj-Atn" id="yiE-k2-eNo">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="129"/>
@@ -631,7 +649,7 @@
                             <tableViewSection headerTitle="" id="1gB-4Z-E6Q" userLabel="标签">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="34" id="dCO-Ry-MkD">
-                                        <rect key="frame" x="0.0" y="297" width="600" height="34"/>
+                                        <rect key="frame" x="0.0" y="361" width="600" height="34"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dCO-Ry-MkD" id="Cmr-Lr-m7t">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="34"/>
@@ -662,7 +680,7 @@
                             <tableViewSection headerTitle="" id="PVI-h9-DCv" userLabel="颜色按钮">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="34" id="EUN-eq-acW">
-                                        <rect key="frame" x="0.0" y="333" width="600" height="34"/>
+                                        <rect key="frame" x="0.0" y="397" width="600" height="34"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EUN-eq-acW" id="aCn-TF-SBQ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="34"/>
@@ -714,7 +732,7 @@
                             <tableViewSection headerTitle="使用番茄数" id="Ny6-K9-fsd">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="43" id="8KH-hR-y0Y">
-                                        <rect key="frame" x="0.0" y="400" width="600" height="43"/>
+                                        <rect key="frame" x="0.0" y="464" width="600" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8KH-hR-y0Y" id="zNl-3d-2pi">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -732,7 +750,7 @@
                             <tableViewSection headerTitle="" id="BWz-k8-S8o" userLabel="Delete">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="91" id="xIi-ce-hmo">
-                                        <rect key="frame" x="0.0" y="445" width="600" height="91"/>
+                                        <rect key="frame" x="0.0" y="509" width="600" height="91"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xIi-ce-hmo" id="xh3-bw-md2">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="91"/>
@@ -784,15 +802,18 @@
         <image name="List" width="44" height="31"/>
         <image name="Settings" width="32" height="32"/>
         <image name="calander" width="25" height="31"/>
+        <image name="comingSoon" width="320" height="568"/>
         <image name="label_outline_24px_1181975_easyicon.net" width="24" height="24"/>
         <image name="round_16px_1139136_easyicon.net" width="16" height="16"/>
         <image name="round_16px_1139236_easyicon.net" width="16" height="16"/>
         <image name="round_16px_1139336_easyicon.net" width="16" height="16"/>
         <image name="round_16px_1139436_easyicon.net" width="16" height="16"/>
+        <image name="start" width="32" height="32"/>
         <image name="statics" width="32" height="32"/>
+        <image name="stop" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="WBD-sT-2p3"/>
         <segue reference="gVQ-IC-wvM"/>
-        <segue reference="ZNP-dN-WGR"/>
     </inferredMetricsTieBreakers>
 </document>

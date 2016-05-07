@@ -28,12 +28,11 @@ class SpeTableViewController: UITableViewController,UITextFieldDelegate {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         var strDate = dateFormatter.stringFromDate(DatePicker.date)
         timeLabel.text = strDate
-
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         writeTextField.delegate = self
         writeTextField.placeholder = "请输入待办事件"
         DeleteBtn.layer.cornerRadius = 5

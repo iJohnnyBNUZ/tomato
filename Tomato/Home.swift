@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import AVFoundation
+import AVFoundation
 
 class Home: UIViewController {
 
@@ -17,6 +17,8 @@ class Home: UIViewController {
     
     var isPlaying = false
     var soundPlayer:AVAudioPlayer?
+    var progress: KDCircularProgress!  //申明一个环
+    var isRelax = false
     
     var remianingSeconds: Int = 0 {
         willSet(newSeconds) {
@@ -41,10 +43,27 @@ class Home: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         remianingSeconds = 1500
+
+        //初始化环      
+        progress = KDCircularProgress(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
+        progress.startAngle = -90
+        progress.progressThickness = 0.2
+        progress.trackThickness = 0.2
+        progress.clockwise = true
+        progress.gradientRotateSpeed = 2
+        progress.roundedCorners = false
+        progress.glowMode = .Forward
+        progress.glowAmount = 0.9
+        progress.trackColor = UIColor.whiteColor()
+        //progress.setColors(UIColor.cyanColor() ,UIColor.whiteColor(), UIColor.magentaColor(), UIColor.whiteColor(), UIColor.orangeColor())
+        progress.setColors(UIColor(red: 238.0/255.0, green:238.0/255.0, blue:0.0/255.0, alpha: 1.0))
+        progress.center = CGPoint(x: view.center.x, y: view.center.y-100 )
+        view.addSubview(progress)
         // Do any additional setup after loading the view.
     }
     
     func updateTimer(timer: NSTimer) {
+
         remianingSeconds -= 1
         
         if remianingSeconds <= 0 {
@@ -67,64 +86,77 @@ class Home: UIViewController {
     }
     
     @IBAction func startButton(sender: AnyObject) {
-        //playSound(0)
+        playSound(1)
         isCounting = !isCounting
+        playSound(2)
+        progress.animateFromAngle(0, toAngle: 360, duration: 1500) { completed in
+            if completed {
+                print("animation stopped, completed")
+            self.progress.angle = 0.0
+            } else {
+                print("animation stopped, was interrupted")
+            }
+        }
+        
     }
     @IBAction func clearButton(sender: AnyObject) {
+        playSound(0)
         remianingSeconds = 1500
         //remianingSeconds = 5
+        self.progress.angle = 0.0
+        self.progress.angle = 0.0
         isCounting = false
     }
     
-//    func playSound(soundIndex: Int) {
-//        let startSoundPath = NSBundle.mainBundle().pathForResource("Start", ofType: "mp3")
-//        let stopSoundPath = NSBundle.mainBundle().pathForResource("Stop", ofType: "mp3")
-//        let pomoingSoundPath = NSBundle.mainBundle().pathForResource("Pomoing", ofType: "mp3")
-//        
-//        let startSoundUrl = NSURL(fileURLWithPath: startSoundPath!)
-//        let stopSoundUrl = NSURL(fileURLWithPath: stopSoundPath!)
-//        let pomoingSoundUrl = NSURL(fileURLWithPath: pomoingSoundPath!)
-//        
-//        switch soundIndex {
-//        case 0:
-//            stopSound()
-//            //if enableAlarmSound {
-//                do {soundPlayer = try AVAudioPlayer(contentsOfURL: stopSoundUrl)} catch _ { }
-//                soundPlayer!.numberOfLoops = 0
-//                soundPlayer!.volume = 1
-//                soundPlayer!.prepareToPlay()
-//                soundPlayer!.play()
-//            //}
-//        case 1:
-//            stopSound()
-//           // if enableAlarmSound {
-//                do {soundPlayer = try AVAudioPlayer(contentsOfURL: startSoundUrl)} catch _ { }
-//                soundPlayer!.numberOfLoops = -1
-//                soundPlayer!.volume = 1
-//                soundPlayer!.prepareToPlay()
-//                soundPlayer!.play()
-//            //}
-//        case 2:
-//            stopSound()
-//            //if enableTimerSound {
-//                do {soundPlayer = try AVAudioPlayer(contentsOfURL: pomoingSoundUrl)} catch _ { }
-//                soundPlayer!.numberOfLoops = -1
-//                soundPlayer!.volume = 0.2
-//                soundPlayer!.prepareToPlay()
-//                soundPlayer!.play()
-//            //}
-//            
-//        default:
-//            if soundPlayer != nil {
-//                soundPlayer!.stop()
-//            }
-//        }
-//    }
-//    func stopSound() {
-//        if soundPlayer != nil {
-//            soundPlayer!.stop()
-//        }
-//    }
+    func playSound(soundIndex: Int) {
+        let startSoundPath = NSBundle.mainBundle().pathForResource("Start", ofType: "mp3")
+        let stopSoundPath = NSBundle.mainBundle().pathForResource("Stop", ofType: "mp3")
+        let pomoingSoundPath = NSBundle.mainBundle().pathForResource("Pomoing", ofType: "mp3")
+        
+        let startSoundUrl = NSURL(fileURLWithPath: startSoundPath!)
+        let stopSoundUrl = NSURL(fileURLWithPath: stopSoundPath!)
+        let pomoingSoundUrl = NSURL(fileURLWithPath: pomoingSoundPath!)
+        
+        switch soundIndex {
+        case 0:
+            stopSound()
+            //if enableAlarmSound {
+                do {soundPlayer = try AVAudioPlayer(contentsOfURL: stopSoundUrl)} catch _ { }
+                soundPlayer!.numberOfLoops = 0
+                soundPlayer!.volume = 1
+                soundPlayer!.prepareToPlay()
+                soundPlayer!.play()
+            //}
+        case 1:
+            stopSound()
+           // if enableAlarmSound {
+                do {soundPlayer = try AVAudioPlayer(contentsOfURL: startSoundUrl)} catch _ { }
+                soundPlayer!.numberOfLoops = 0
+                soundPlayer!.volume = 1
+                soundPlayer!.prepareToPlay()
+                soundPlayer!.play()
+            //}
+        case 2:
+            stopSound()
+            //if enableTimerSound {
+                do {soundPlayer = try AVAudioPlayer(contentsOfURL: pomoingSoundUrl)} catch _ { }
+                soundPlayer!.numberOfLoops = -1
+                soundPlayer!.volume = 0.2
+                soundPlayer!.prepareToPlay()
+                soundPlayer!.play()
+            //}
+            
+        default:
+            if soundPlayer != nil {
+                soundPlayer!.stop()
+            }
+        }
+    }
+    func stopSound() {
+        if soundPlayer != nil {
+            soundPlayer!.stop()
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
