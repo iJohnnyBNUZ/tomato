@@ -11,6 +11,11 @@ import UIKit
 var dataModel = DataModel()
 
 class SpeTableViewController: UITableViewController,UITextFieldDelegate {
+    @IBOutlet weak var btnTag1: UIButton!
+    @IBOutlet weak var btnTag2: UIButton!
+    @IBOutlet weak var btnTag3: UIButton!
+    @IBOutlet weak var btnTag4: UIButton!
+    @IBOutlet weak var numOfTomato: UILabel!
     
     @IBOutlet weak var writeTextField: UITextField!
     @IBOutlet weak var timeLabel: UILabel!
@@ -20,6 +25,8 @@ class SpeTableViewController: UITableViewController,UITextFieldDelegate {
     @IBOutlet var tableview: UITableView!
     var isComplite = false
     var listName:String = ""
+    var listDeadLine:String = ""
+    var listTag:Int = 0
     var pickerVisible = false
     
     @IBAction func datepickerAction(sender: AnyObject){
@@ -38,10 +45,35 @@ class SpeTableViewController: UITableViewController,UITextFieldDelegate {
         DeleteBtn.layer.cornerRadius = 5
         self.automaticallyAdjustsScrollViewInsets = false
         
+        //初始化显示的数据
         if isComplite == true {
             writeTextField.textColor = UIColor.lightGrayColor()
             writeTextField.userInteractionEnabled = false
             writeTextField.text = listName
+            timeLabel.text = listDeadLine
+            switch listTag {
+            case 1:
+                btnTag2.hidden = true
+                btnTag3.hidden = true
+                btnTag4.hidden = true
+            case 2:
+                btnTag1.hidden = true
+                btnTag3.hidden = true
+                btnTag4.hidden = true
+            case 3:
+                btnTag1.hidden = true
+                btnTag2.hidden = true
+                btnTag4.hidden = true
+            case 4:
+                btnTag1.hidden = true
+                btnTag2.hidden = true
+                btnTag3.hidden = true
+            default:
+                btnTag1.hidden = true
+                btnTag2.hidden = true
+                btnTag3.hidden = true
+                btnTag3.hidden = true
+            }
             DeleteBtn.setTitle("好", forState: UIControlState.Normal)
         }else {
             writeTextField.textColor = UIColor.blackColor()
@@ -57,7 +89,7 @@ class SpeTableViewController: UITableViewController,UITextFieldDelegate {
     
     @IBAction func saveBtn(sender: AnyObject) {
         if ((writeTextField.text) != "") {
-            dataModel.userList.append(UserInfo(name: writeTextField.text!))
+            dataModel.userList.append(UserInfo(name: writeTextField.text!,deadLine: timeLabel.text!,tag: listTag, numTomato: 4))
             print("save")
             dataModel.saveData()
             dataModel.loadData()
@@ -66,6 +98,57 @@ class SpeTableViewController: UITableViewController,UITextFieldDelegate {
         else {
             shakeAnimation(writeTextField)
         }
+    }
+    
+    //判断tag的点击
+    @IBAction func acTag1(sender: AnyObject) {
+        print("Tag 1 selected")
+        //btnTag1.setImage(UIImage(contentsOfFile: "tagSelect1"), forState:.Normal)
+        listTag = 1
+    }
+    @IBAction func acTag2(sender: AnyObject) {
+        print("Tag 2 selected")
+        listTag = 2
+    }
+    @IBAction func acTag3(sender: AnyObject) {
+        print("Tag 3 selected")
+        listTag = 3
+    }
+    @IBAction func acTag4(sender: AnyObject) {
+        print("Tag 4 selected")
+        listTag = 4
+    }
+    
+    //实现picker的隐藏
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 0 && indexPath.section == 1{
+            pickerVisible = !pickerVisible
+            print(pickerVisible)
+        }
+        print(pickerVisible)
+        tableview.reloadData()
+        tableview.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 1 && indexPath.section == 1 {
+            if pickerVisible == true{
+                return 129.0
+            }
+            else {
+                return 0.0
+            }
+        }
+        else if indexPath.row == 0 && indexPath.section == 0{
+            return 83.0
+        }
+        else if indexPath.section == 2 || indexPath.section == 3{
+            return 34.0
+        }
+        else if indexPath.section == 5 {
+            return 91.0
+        }
+        return 43.0
     }
     
     //输入栏shake

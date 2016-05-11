@@ -45,10 +45,11 @@ class DataModel: NSObject {
             let unarchiver = NSKeyedUnarchiver(forReadingWithData: data!)
             //通过归档时设置的关键字Checklist还原lists
             userList = unarchiver.decodeObjectForKey("userList") as! Array
-            //print(userList[0].deadLine)
-            print("加入数量:\(userList.count)")
-            //print(userList[0].tag)
-            //print(userList[0].numTomato)
+            print(userList[0].name)
+            print(userList[0].deadLine)
+            //print("加入数量:\(userList.count)")
+            print(userList[0].tag)
+            print(userList[0].numTomato)
             //结束解码
             unarchiver.finishDecoding()
         }

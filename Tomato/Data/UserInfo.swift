@@ -10,33 +10,33 @@ import UIKit
 
 class UserInfo: NSObject {
     var name: String
-    //var deadLine: String
-    //var tag: Int
-    //var numTomato: Int
+    var deadLine: String
+    var tag: Int
+    var numTomato: Int
     
     //构造方法
-    //init(name:String = "", deadLine:String = "", tag:Int = 0, numTomato:Int = 0) {
-    init(name:String = "") {
+    init(name:String = "", deadLine:String = "", tag:Int = 0, numTomato:Int = 0) {
+    //init(name:String = "") {
         self.name = name
-        //self.deadLine = deadLine
-        //self.tag = tag
-        //self.numTomato = numTomato
+        self.deadLine = deadLine
+        self.tag = tag
+        self.numTomato = numTomato
         super.init()
     }
     
     //从nsobject解析回来
     init(coder aDecoder: NSCoder!) {
         self.name = aDecoder.decodeObjectForKey("Name") as! String
-        //self.deadLine = aDecoder.decodeObjectForKey("DeadLine") as! String
-        //self.tag = aDecoder.decodeObjectForKey("Tag") as! Int
-        //self.numTomato = aDecoder.decodeObjectForKey("NumTomato") as! Int
+        self.deadLine = aDecoder.decodeObjectForKey("DeadLine") as! String
+        self.tag = aDecoder.decodeObjectForKey("Tag") as! Int
+        self.numTomato = aDecoder.decodeObjectForKey("NumTomato") as! Int
     }
     
     //编码成object
     func encodeWithCoder(aCoder: NSCoder!) {
         aCoder.encodeObject(name,forKey: "Name")
-        //aCoder.encodeObject(deadLine,forKey: "DeadLine")
-        //aCoder.encodeObject(tag,forKey: "Tag")
-        //aCoder.encodeObject(numTomato,forKey: "NumTomato")
+        aCoder.encodeObject(deadLine,forKey: "DeadLine")
+        aCoder.encodeObject(tag,forKey: "Tag")
+        aCoder.encodeObject(numTomato,forKey: "NumTomato")
     }
 }

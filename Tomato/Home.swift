@@ -11,6 +11,7 @@ import AVFoundation
 
 class Home: UIViewController {
 
+    
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
@@ -35,7 +36,7 @@ class Home: UIViewController {
                 timer?.invalidate()
                 timer = nil
             }
-            setSettingButtonsEnabled(!newValue)
+            setButtonsEnabled(!newValue)
         }
     }
     var timer:NSTimer?
@@ -43,12 +44,12 @@ class Home: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         remianingSeconds = 1500
-
+        setButtonsEnabled(true)
         //初始化环      
         progress = KDCircularProgress(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
         progress.startAngle = -90
-        progress.progressThickness = 0.2
-        progress.trackThickness = 0.2
+        progress.progressThickness = 0.1
+        progress.trackThickness = 0.1
         progress.clockwise = true
         progress.gradientRotateSpeed = 2
         progress.roundedCorners = false
@@ -57,7 +58,7 @@ class Home: UIViewController {
         progress.trackColor = UIColor.whiteColor()
         //progress.setColors(UIColor.cyanColor() ,UIColor.whiteColor(), UIColor.magentaColor(), UIColor.whiteColor(), UIColor.orangeColor())
         progress.setColors(UIColor(red: 238.0/255.0, green:238.0/255.0, blue:0.0/255.0, alpha: 1.0))
-        progress.center = CGPoint(x: view.center.x, y: view.center.y-100 )
+        progress.center = CGPoint(x: view.center.x, y: timeLabel.center.y + 47 )
         view.addSubview(progress)
         // Do any additional setup after loading the view.
     }
@@ -73,6 +74,7 @@ class Home: UIViewController {
             self.remianingSeconds = 1500
             
             let alert = UIAlertView()
+            //setStopButtonsEnabled(true)
             alert.title = "计时完成！"
             alert.message = ""
             alert.addButtonWithTitle("OK")
@@ -80,14 +82,59 @@ class Home: UIViewController {
             
         }
     }
-    func setSettingButtonsEnabled(enabled: Bool) {
-        startButton!.enabled = enabled
+    //开始按钮隐藏
+    func setButtonsEnabled(enabled: Bool) {
         startButton!.alpha = enabled ? 1.0 : 0.3
+        startButton!.alpha = enabled ? 1.0 : 0.3
+        startButton!.hidden = !enabled
+        clearButton!.hidden = enabled
+        startButton!.enabled = enabled
+        clearButton!.enabled = !enabled
     }
+    
+//    @IBAction func longPress(sender: AnyObject) {
+//        if sender.state == UIGestureRecognizerState.Ended {
+//            print("UIGesture over")
+//            pomodoroClass.playSound(5)
+//            if process < 100 {
+//                stopTimer()
+//                processToZero()
+//            } else {
+//                pomodoroClass.start()
+//                print("Pomodoro Started")
+//                stopTimer()
+//                timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "pomoing:", userInfo: nil, repeats: true)
+//            }
+//        } 
+//         if sender.state == UIGestureRecognizerState.Began {
+//                print("UIGesture start")
+//                progress.animateFromAngle(0, toAngle: 360, duration: 1) { completed in
+//                    if completed {
+//                        print("animation stopped, completed")
+//                        self.progress.angle = 0.0
+//                    } else {
+//                        print("animation stopped, was interrupted")
+//                    }
+//                }
+//            
+//                playSound(1)
+//                isCounting = !isCounting
+//                playSound(2)
+//                progress.animateFromAngle(0, toAngle: 360, duration: 1500) { completed in
+//                if completed {
+//                    print("animation stopped, completed")
+//                    self.progress.angle = 0.0
+//                } else {
+//                    print("animation stopped, was interrupted")
+//                }
+//            }
+//        }
+//    }
     
     @IBAction func startButton(sender: AnyObject) {
         playSound(1)
         isCounting = !isCounting
+        
         playSound(2)
         progress.animateFromAngle(0, toAngle: 360, duration: 1500) { completed in
             if completed {
@@ -97,7 +144,6 @@ class Home: UIViewController {
                 print("animation stopped, was interrupted")
             }
         }
-        
     }
     @IBAction func clearButton(sender: AnyObject) {
         playSound(0)

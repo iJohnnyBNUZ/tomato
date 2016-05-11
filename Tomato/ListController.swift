@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListController: UIViewController,UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate{
+class ListController: UIViewController,UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate,UIGestureRecognizerDelegate {
 
     @IBOutlet weak var quickTask: UITextField!
     @IBOutlet var tableview: UITableView!
@@ -16,6 +16,8 @@ class ListController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     var listGroupName : NSArray!
     //var listTeam :NSArray = []
     var name:String = ""  //用于传递任务名称
+    var deadline:String = ""
+    var tag:Int = 0
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +27,21 @@ class ListController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         quickTask.delegate = self
         quickTask.placeholder = "快速添加待办事件"
         
-        dataModel.loadData()
+        //dataModel.loadData()
         
         let nib = UINib(nibName:  "ListCell",bundle: nil)
         tableview.registerNib(nib, forCellReuseIdentifier: "cell")
         self.tableview.separatorStyle = UITableViewCellSeparatorStyle.None
         self.tableview.tableFooterView = UIView()
+        
+        //绑定对长按的响应
+        var longPress =  UILongPressGestureRecognizer(target:self,
+                                                      action:Selector("tableviewCellLongPressed:"))
+        //代理
+        longPress.delegate = self
+        longPress.minimumPressDuration = 0.5
+        //将长按手势添加到需要实现长按操作的视图里
+        self.tableview!.addGestureRecognizer(longPress)
         
     }
     
@@ -54,12 +65,16 @@ class ListController: UIViewController,UITableViewDelegate, UITableViewDataSourc
             var ListVc:SpeTableViewController = segue.destinationViewController as! SpeTableViewController
             ListVc.isComplite = true
             ListVc.listName = name
+            ListVc.listDeadLine = deadline
+            ListVc.listTag = tag
         }
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("Row \(indexPath.row) selected")
         name = dataModel.userList[indexPath.row].name
+        deadline = dataModel.userList[indexPath.row].deadLine
+        tag = dataModel.userList[indexPath.row].tag
         performSegueWithIdentifier("DetailsView", sender: self)
     }
     
@@ -70,6 +85,45 @@ class ListController: UIViewController,UITableViewDelegate, UITableViewDataSourc
             dataModel.userList.removeAtIndex(indexPath.row)
             dataModel.saveData()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
+    
+    //长按表格
+    func tableviewCellLongPressed(gestureRecognizer:UILongPressGestureRecognizer)
+    {
+        if (gestureRecognizer.state == UIGestureRecognizerState.Ended)
+        {
+            print("UIGestureRecognizerStateEnded");
+            //在正常状态和编辑状态之间切换
+            if(self.tableview!.editing == false){
+                self.tableview!.setEditing(true, animated:true)
+            }
+            else{
+                self.tableview!.setEditing(false, animated:true)
+            }
+        }
+    }
+    
+    //在编辑状态，可以拖动设置cell位置
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    //移动cell事件
+    func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath,
+                   toIndexPath: NSIndexPath) {
+        if fromIndexPath != toIndexPath{
+            //获取移动行对应的值
+            var itemValue:UserInfo = dataModel.userList[fromIndexPath.row]
+            //删除移动的值
+            dataModel.userList.removeAtIndex(fromIndexPath.row)
+            //如果移动区域大于现有行数，直接在最后添加移动的值
+            if toIndexPath.row > dataModel.userList.count{
+                dataModel.userList.append(itemValue)
+            }else{
+                //没有超过最大行数，则在目标位置添加刚才删除的值
+                dataModel.userList.insert(itemValue, atIndex:toIndexPath.row)
+            }
         }
     }
     
