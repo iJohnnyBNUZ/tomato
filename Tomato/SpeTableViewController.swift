@@ -40,6 +40,8 @@ class SpeTableViewController: UITableViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableview.separatorStyle = UITableViewCellSeparatorStyle.None
+        
         writeTextField.delegate = self
         writeTextField.placeholder = "请输入待办事件"
         DeleteBtn.layer.cornerRadius = 5
@@ -133,7 +135,7 @@ class SpeTableViewController: UITableViewController,UITextFieldDelegate {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 1 && indexPath.section == 1 {
             if pickerVisible == true{
-                return 129.0
+                return 165.0
             }
             else {
                 return 0.0
@@ -142,13 +144,10 @@ class SpeTableViewController: UITableViewController,UITextFieldDelegate {
         else if indexPath.row == 0 && indexPath.section == 0{
             return 83.0
         }
-        else if indexPath.section == 2 || indexPath.section == 3{
-            return 34.0
-        }
         else if indexPath.section == 5 {
             return 91.0
         }
-        return 43.0
+        return 44.0
     }
     
     //输入栏shake

@@ -58,7 +58,7 @@ class Home: UIViewController {
         progress.trackColor = UIColor.whiteColor()
         //progress.setColors(UIColor.cyanColor() ,UIColor.whiteColor(), UIColor.magentaColor(), UIColor.whiteColor(), UIColor.orangeColor())
         progress.setColors(UIColor(red: 238.0/255.0, green:238.0/255.0, blue:0.0/255.0, alpha: 1.0))
-        progress.center = CGPoint(x: view.center.x, y: timeLabel.center.y + 47 )
+        progress.center = CGPoint(x: view.center.x, y: timeLabel.center.y + 40 )
         view.addSubview(progress)
         // Do any additional setup after loading the view.
     }
